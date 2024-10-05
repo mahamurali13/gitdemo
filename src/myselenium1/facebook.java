@@ -1,0 +1,40 @@
+package myselenium1;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
+//import org.openqa.selenium.support.ui.Select;
+
+public class facebook {
+
+	public static void main(String[] args) throws InterruptedException, IOException {
+		// TODO Auto-generated method stub
+  WebDriver driver=new ChromeDriver();
+  driver.get("https://www.guru99.com");
+  String guru=driver.getTitle();
+  System.out.println(guru);
+ //identify listbox
+ // WebElement  listbox=driver.findElement(By.className("featured-box"));
+   //SELECT MULTIPLE FROM LIST BOX
+ /* Select se=new Select(listbox);
+  se.selectByValue("810");*/
+  File location=new File("C:\\Users\\maham\\OneDrive\\Pictures\\SCREENSHOT2//img.gpg");
+  File capture=((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+ FileHandler.copy(capture, location); 
+ System.out.println("screenshot taken");
+  Thread.sleep(5000);
+  /*ArrayList<String> window=new ArrayList<String>(driver.getWindowHandles());
+  System.out.println(window);
+  driver.switchTo().window(window.get(1));*/
+  
+	}
+
+}
